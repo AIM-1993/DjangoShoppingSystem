@@ -58,12 +58,12 @@ class Product(models.Model):
         "Meta描述",
         max_length=255, help_text="meta 描述标签")
     created_at = models.DateTimeField("创建时间", auto_now_add=True)
-    update_at = models.DateTimeField("更新时间", auto_now=True)
+    updated_at = models.DateTimeField("更新时间", auto_now=True)
     # 多对多映射，一个产品可以属于多个分类
     categories = models.ManyToManyField(Category)
 
     class Meta:
-        db_table = "products",
+        db_table = "products"
         ordering = ['-created_at']
 
     def __str__(self):
